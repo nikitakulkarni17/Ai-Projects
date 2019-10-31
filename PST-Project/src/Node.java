@@ -3,7 +3,7 @@ import java.util.*;
 public class Node<T> {
 	ArrayList<T> tokenSequence = new ArrayList<T>();
 	ArrayList<Node<T>> children = new ArrayList<Node<T>>();
-	
+	double nodeProb;
 	
 	Node() {}
 	
@@ -20,10 +20,10 @@ public class Node<T> {
 		return children;
 	}
 	
-	void setNode(ArrayList<T> input)
+	void setNodeProb(double input)
 	{
 		
-
+		this.nodeProb = input;
 	}
 	
 	boolean addNode(Node<T> node)

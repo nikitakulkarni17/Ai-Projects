@@ -55,10 +55,10 @@ public class HelloWorldMidiMain extends PApplet {
 		//draw text 
 		fill(0);
 		textSize(20);
-		text("Press 'a' to test ABRACADABRA.", 150, 100);
-		text("Press 'b' to test ACADAACBDA.", 150, 275);
-		text("Press 'c' to test ABCCCDAADCDAABCADAD.", 150, 450);
-		text("Press 'd' to test Mary Had a Little Lamb.", 150, 625);
+		text("Press 'a/b' to test ABRACADABRA. 1 for UT1", 100, 100);
+		text("Press 'c/d' to test ACADAACBDA. 2 for UT1", 100, 275);
+		text("Press 'e/f' to test ABCCCDAADCDAABCADAD. 3 for UT1", 100, 450);
+		text("Press 'g/h' to test Mary Had a Little Lamb. 4 for UT1", 100, 625);
 		
 		// returns a url
 		String filePath = getPath("mid/MaryHadALittleLamb.mid");
@@ -114,42 +114,114 @@ public class HelloWorldMidiMain extends PApplet {
 			player.reset();
 			println("Melody started!");
 		}
-		if( key == 'a')
+		//pst for 3 and .1 
+		if( key == 'b')
+		{
+			System.out.println("Abracadabra");
+			Character[] myList = {'a', 'b', 'r', 'a', 'c', 'a', 'd', 'a', 'b', 'r', 'a'};
+			ArrayList<Character> data = new ArrayList(Arrays.asList(myList));
+			Tree<Character> tree = new Tree<Character>(3, 0.1);
+			tree.train(data);
+			tree.printTree();	
+		}
+		//pst for 3 and .15
+		if( key == 'b')
+		{
+			System.out.println("Abracadabra");
+			Character[] myList = {'a', 'b', 'r', 'a', 'c', 'a', 'd', 'a', 'b', 'r', 'a'};
+			ArrayList<Character> data = new ArrayList(Arrays.asList(myList));
+			Tree<Character> tree = new Tree<Character>(3, 0.15);
+			tree.train(data);
+			tree.printTree();	
+		}
+		if( key == '1')
 		{
 			System.out.println("Abracadabra");
 			Character[] myList = {'a', 'b', 'r', 'a', 'c', 'a', 'd', 'a', 'b', 'r', 'a'};
 			ArrayList<Character> data = new ArrayList(Arrays.asList(myList));
 			Tree<Character> tree = new Tree<Character>();
-			tree.setL(3);
 			tree.train(data);
 			tree.printTree();	
 		}
-		if( key == 'b')
+		//pst for 3 and .1 
+		if( key == 'c')
+		{
+			System.out.println("Acadaacbda");
+			Character[] myList = {'a', 'c', 'a', 'd', 'a', 'a', 'c', 'b', 'd', 'a'};
+			ArrayList<Character> data = new ArrayList(Arrays.asList(myList));
+			Tree<Character> tree = new Tree<Character>(3, .1);
+			tree.train(data);
+			tree.printTree();	
+		}
+		//pst for 3 and .15
+		if( key == 'd')
+		{
+			System.out.println("Acadaacbda");
+			Character[] myList = {'a', 'c', 'a', 'd', 'a', 'a', 'c', 'b', 'd', 'a'};
+			ArrayList<Character> data = new ArrayList(Arrays.asList(myList));
+			Tree<Character> tree = new Tree<Character>(3, 0.15);
+			tree.train(data);
+			tree.printTree();	
+		}
+		if( key == '2')
 		{
 			System.out.println("Acadaacbda");
 			Character[] myList = {'a', 'c', 'a', 'd', 'a', 'a', 'c', 'b', 'd', 'a'};
 			ArrayList<Character> data = new ArrayList(Arrays.asList(myList));
 			Tree<Character> tree = new Tree<Character>();
-			tree.setL(3);
 			tree.train(data);
 			tree.printTree();	
 		}
-		if( key == 'c')
+		//pst for 3 and .1 
+		if( key == 'e')
+		{
+			System.out.println("Abcccdaadcdaabcadad");
+			Character[] myList = {'a', 'b', 'c', 'c', 'c', 'd', 'a', 'a', 'd', 'c', 'd', 'a', 'a', 'b', 'c', 'a', 'd', 'a', 'd'};
+			ArrayList<Character> data = new ArrayList(Arrays.asList(myList));
+			Tree<Character> tree = new Tree<Character>(3, 0.1);
+			tree.train(data);
+			tree.printTree();
+		}
+		//pst for 3 and .15
+		if( key == 'f')
+		{
+			System.out.println("Abcccdaadcdaabcadad");
+			Character[] myList = {'a', 'b', 'c', 'c', 'c', 'd', 'a', 'a', 'd', 'c', 'd', 'a', 'a', 'b', 'c', 'a', 'd', 'a', 'd'};
+			ArrayList<Character> data = new ArrayList(Arrays.asList(myList));
+			Tree<Character> tree = new Tree<Character>(3, 0.15);
+			tree.train(data);
+			tree.printTree();
+		}
+		if( key == '3')
 		{
 			System.out.println("Abcccdaadcdaabcadad");
 			Character[] myList = {'a', 'b', 'c', 'c', 'c', 'd', 'a', 'a', 'd', 'c', 'd', 'a', 'a', 'b', 'c', 'a', 'd', 'a', 'd'};
 			ArrayList<Character> data = new ArrayList(Arrays.asList(myList));
 			Tree<Character> tree = new Tree<Character>();
-			tree.setL(3);
 			tree.train(data);
 			tree.printTree();
 		}
-		if( key == 'd')
+		if( key == 'g')
+		{
+			System.out.println("Mary Had a Little Lamb ");
+			ArrayList<Integer> pitches = midiNotes.getPitchArray();
+			Tree<Integer> tree = new Tree<Integer>(3, 0.1);
+			tree.train(pitches);
+			tree.printTree();
+		}
+		if( key == 'h')
+		{
+			System.out.println("Mary Had a Little Lamb ");
+			ArrayList<Integer> pitches = midiNotes.getPitchArray();
+			Tree<Integer> tree = new Tree<Integer>(3, 0.15);
+			tree.train(pitches);
+			tree.printTree();
+		}
+		if( key == '4')
 		{
 			System.out.println("Mary Had a Little Lamb ");
 			ArrayList<Integer> pitches = midiNotes.getPitchArray();
 			Tree<Integer> tree = new Tree<Integer>();
-			tree.setL(3);
 			tree.train(pitches);
 			tree.printTree();
 		}
