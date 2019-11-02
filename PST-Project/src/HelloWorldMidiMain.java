@@ -37,7 +37,6 @@ public class HelloWorldMidiMain extends PApplet {
 	//setting the window size to 300x300
 	public void settings() {
 		size(700, 800);
-
 	}
 
 	//doing all the setup stuff
@@ -115,28 +114,28 @@ public class HelloWorldMidiMain extends PApplet {
 			println("Melody started!");
 		}
 		//pst for 3 and .1 
-		if( key == 'b')
+		if( key == 'a')
 		{
-			System.out.println("Abracadabra");
+			System.out.println("Abracadabra: .1");
 			Character[] myList = {'a', 'b', 'r', 'a', 'c', 'a', 'd', 'a', 'b', 'r', 'a'};
 			ArrayList<Character> data = new ArrayList(Arrays.asList(myList));
-			Tree<Character> tree = new Tree<Character>(3, 0.1);
+			Tree<Character> tree = new Tree<Character>(3, 0.1f);
 			tree.train(data);
 			tree.printTree();	
 		}
 		//pst for 3 and .15
 		if( key == 'b')
 		{
-			System.out.println("Abracadabra");
+			System.out.println("Abracadabra: .15");
 			Character[] myList = {'a', 'b', 'r', 'a', 'c', 'a', 'd', 'a', 'b', 'r', 'a'};
 			ArrayList<Character> data = new ArrayList(Arrays.asList(myList));
-			Tree<Character> tree = new Tree<Character>(3, 0.15);
+			Tree<Character> tree = new Tree<Character>(3, 0.15f);
 			tree.train(data);
 			tree.printTree();	
 		}
 		if( key == '1')
 		{
-			System.out.println("Abracadabra");
+			System.out.println("Abracadabra: Unit Test 1");
 			Character[] myList = {'a', 'b', 'r', 'a', 'c', 'a', 'd', 'a', 'b', 'r', 'a'};
 			ArrayList<Character> data = new ArrayList(Arrays.asList(myList));
 			Tree<Character> tree = new Tree<Character>();
@@ -146,26 +145,26 @@ public class HelloWorldMidiMain extends PApplet {
 		//pst for 3 and .1 
 		if( key == 'c')
 		{
-			System.out.println("Acadaacbda");
+			System.out.println("Acadaacbda: .1");
 			Character[] myList = {'a', 'c', 'a', 'd', 'a', 'a', 'c', 'b', 'd', 'a'};
 			ArrayList<Character> data = new ArrayList(Arrays.asList(myList));
-			Tree<Character> tree = new Tree<Character>(3, .1);
+			Tree<Character> tree = new Tree<Character>(3, .1f);
 			tree.train(data);
 			tree.printTree();	
 		}
 		//pst for 3 and .15
 		if( key == 'd')
 		{
-			System.out.println("Acadaacbda");
+			System.out.println("Acadaacbda: .15");
 			Character[] myList = {'a', 'c', 'a', 'd', 'a', 'a', 'c', 'b', 'd', 'a'};
 			ArrayList<Character> data = new ArrayList(Arrays.asList(myList));
-			Tree<Character> tree = new Tree<Character>(3, 0.15);
+			Tree<Character> tree = new Tree<Character>(3, 0.15f);
 			tree.train(data);
 			tree.printTree();	
 		}
 		if( key == '2')
 		{
-			System.out.println("Acadaacbda");
+			System.out.println("Acadaacbda: Unit Test 1");
 			Character[] myList = {'a', 'c', 'a', 'd', 'a', 'a', 'c', 'b', 'd', 'a'};
 			ArrayList<Character> data = new ArrayList(Arrays.asList(myList));
 			Tree<Character> tree = new Tree<Character>();
@@ -175,26 +174,26 @@ public class HelloWorldMidiMain extends PApplet {
 		//pst for 3 and .1 
 		if( key == 'e')
 		{
-			System.out.println("Abcccdaadcdaabcadad");
+			System.out.println("Abcccdaadcdaabcadad: .1");
 			Character[] myList = {'a', 'b', 'c', 'c', 'c', 'd', 'a', 'a', 'd', 'c', 'd', 'a', 'a', 'b', 'c', 'a', 'd', 'a', 'd'};
 			ArrayList<Character> data = new ArrayList(Arrays.asList(myList));
-			Tree<Character> tree = new Tree<Character>(3, 0.1);
+			Tree<Character> tree = new Tree<Character>(3, 0.1f);
 			tree.train(data);
 			tree.printTree();
 		}
 		//pst for 3 and .15
 		if( key == 'f')
 		{
-			System.out.println("Abcccdaadcdaabcadad");
+			System.out.println("Abcccdaadcdaabcadad: .15");
 			Character[] myList = {'a', 'b', 'c', 'c', 'c', 'd', 'a', 'a', 'd', 'c', 'd', 'a', 'a', 'b', 'c', 'a', 'd', 'a', 'd'};
 			ArrayList<Character> data = new ArrayList(Arrays.asList(myList));
-			Tree<Character> tree = new Tree<Character>(3, 0.15);
+			Tree<Character> tree = new Tree<Character>(3, 0.15f);
 			tree.train(data);
 			tree.printTree();
 		}
 		if( key == '3')
 		{
-			System.out.println("Abcccdaadcdaabcadad");
+			System.out.println("Abcccdaadcdaabcadad: Unit Test 1");
 			Character[] myList = {'a', 'b', 'c', 'c', 'c', 'd', 'a', 'a', 'd', 'c', 'd', 'a', 'a', 'b', 'c', 'a', 'd', 'a', 'd'};
 			ArrayList<Character> data = new ArrayList(Arrays.asList(myList));
 			Tree<Character> tree = new Tree<Character>();
@@ -203,23 +202,23 @@ public class HelloWorldMidiMain extends PApplet {
 		}
 		if( key == 'g')
 		{
-			System.out.println("Mary Had a Little Lamb ");
+			System.out.println("Mary Had a Little Lamb: .1");
 			ArrayList<Integer> pitches = midiNotes.getPitchArray();
-			Tree<Integer> tree = new Tree<Integer>(3, 0.1);
+			Tree<Integer> tree = new Tree<Integer>(3, 0.1f);
 			tree.train(pitches);
 			tree.printTree();
 		}
 		if( key == 'h')
 		{
-			System.out.println("Mary Had a Little Lamb ");
+			System.out.println("Mary Had a Little Lamb: .15");
 			ArrayList<Integer> pitches = midiNotes.getPitchArray();
-			Tree<Integer> tree = new Tree<Integer>(3, 0.15);
+			Tree<Integer> tree = new Tree<Integer>(3, 0.15f);
 			tree.train(pitches);
 			tree.printTree();
 		}
 		if( key == '4')
 		{
-			System.out.println("Mary Had a Little Lamb ");
+			System.out.println("Mary Had a Little Lamb: Unit Test 1");
 			ArrayList<Integer> pitches = midiNotes.getPitchArray();
 			Tree<Integer> tree = new Tree<Integer>();
 			tree.train(pitches);

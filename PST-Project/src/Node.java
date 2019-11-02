@@ -4,6 +4,7 @@ public class Node<T> {
 	ArrayList<T> tokenSequence = new ArrayList<T>();
 	ArrayList<Node<T>> children = new ArrayList<Node<T>>();
 	double nodeProb;
+	int count = 1;
 	
 	Node() {}
 	
@@ -33,6 +34,7 @@ public class Node<T> {
 			if(tokenSequence.equals(nodeToken))
 			{
 				found = true;
+				count++;
 			}
 		
 		else if(amIaSuffix(nodeToken) || tokenSequence.size() == 0)
@@ -86,21 +88,33 @@ public class Node<T> {
 	{
 		ArrayList<T> newSuffix = new ArrayList<T>(inputSeq.subList((inputSeq.size() - tokenSequence.size()), inputSeq.size()));
 		boolean ans = false;
-//		if(inputSeq.size() == 0)
-//		{
-//			ans = false;
-//		}
-//		else
-//		{
-//		
-////		ArrayList<T> newSuffix = new ArrayList<T>(inputSeq.subList((tokenSequence.size() - inputSeq.size()), inputSeq.size()));
-////		for(int i = 0; i <children.size(); i++)
-////		{
-////			if(children.get(i).equals(newSuffix));
-////			ans = true;
-////		}
-//		}
+
 		return this.tokenSequence.equals(newSuffix);
 		
+	}
+	
+	boolean pMin(int total, float p)
+	{
+		boolean remove = false;
+		float sum = total - (tokenSequence.size() - 1);
+		float prob = count / sum;
+		
+		if((tokenSequence.size()!=0) && prob < p)
+		{
+			remove = true;
+		}
+		else
+		{
+			for(int i = children.size()-1; i>=0; i--)
+			{
+				
+				//System.out.println("Checking child: " + children.get(i).getToken());
+				if(children.get(i).pMin(total, p))
+				{
+					children.remove(children.get(i));
+				}
+			}
+		}
+		return remove;
 	}
 }
